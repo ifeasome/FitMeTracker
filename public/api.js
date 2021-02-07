@@ -43,5 +43,3 @@ const API = {
   },
 };
 
-// a routes folder that would hold my back end routes 
-// 

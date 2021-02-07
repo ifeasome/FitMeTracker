@@ -14,11 +14,16 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+// Routes
+// =============================================================
+require("./routes/htmlRoutes.js")(app);
+require("./routes/apiRoutes.js")(app);
+
+
 mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/workoutdb", { useNewUrlParser: true });
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}!`);
   });
 
-  // create a schema in a models folder 
-  // target schema through the backend files via the 
+  
