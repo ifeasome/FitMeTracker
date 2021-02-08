@@ -23,7 +23,7 @@ module.exports = function (app) {
     const exercise = req.body;
     db.findByIdAndUpdate(
       id,
-      { $push: {exercises: req.body} },
+      { $push: {exercise: req.body} },
       { new: true }
     )
       .then((data) => {
