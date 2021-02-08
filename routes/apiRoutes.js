@@ -1,4 +1,4 @@
-const db = require("../models/");
+const db = require("../models");
 
 // ===============================================================================
 // ROUTING
@@ -19,10 +19,12 @@ module.exports = function (app) {
   app.put("/api/workouts/:id", function (req, res) {
     // add exercise in db based on id
     console.log(req.body);
+    const id = req.params.id;
+    const exercise = req.body;
     db.findByIdAndUpdate(
-      req.params.id,
-      { ExerciseType: req.body.ExerciseType },
-      { new: true, runValidators: true }
+      id,
+      { $push: {exercises: req.body} },
+      { new: true }
     )
       .then((data) => {
         res.json(data);
