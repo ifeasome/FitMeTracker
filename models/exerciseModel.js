@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 
 const ExerciseSchema = new Schema({
   day: { type: Date, 
-        default: () => new Date()},
+        default: Date.now},
   exercises: [
     { type: { type: String }, 
     name: { type: String },
@@ -27,6 +27,7 @@ const Exercise = mongoose.model("Exercise", ExerciseSchema);
 
 module.exports = Exercise;
 
+// DEV STUDY NOTES 
 // virtuals are computed properties: a property that calculates and returns a 
 // value rather than just store it. 
 // total = accumulator 
