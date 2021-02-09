@@ -38,7 +38,7 @@ module.exports = function (app) {
     // create workout
     console.log(req.body);
     const body = req.body;
-    Exercise.create()
+    Exercise.create(body)
       .then((data) => {
         res.json(data);
       })
