@@ -36,9 +36,7 @@ module.exports = function (app) {
 
   app.post("/api/workouts", function (req, res) {
     // create workout
-    console.log(req.body);
-    const body = req.body;
-    Exercise.create(body)
+    Exercise.create({})
       .then((data) => {
         res.json(data);
       })
