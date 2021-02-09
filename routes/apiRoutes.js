@@ -1,4 +1,4 @@
-const db = require("../models");
+const { Exercise } = require("../models");
 
 // ===============================================================================
 // ROUTING
@@ -7,7 +7,7 @@ const db = require("../models");
 module.exports = function (app) {
   app.get("/api/workouts", function (req, res) {
     // find last workout
-    db.find()
+    Exercise.find()
       .then((data) => {
         res.json(data);
       })
@@ -17,11 +17,11 @@ module.exports = function (app) {
   });
 
   app.put("/api/workouts/:id", function (req, res) {
-    // add exercise in db based on id
+    // add exercise inExercise based on id
     console.log(req.body);
     const id = req.params.id;
     const exercise = req.body;
-    db.findByIdAndUpdate(
+    Exercise.findByIdAndUpdate(
       id,
       { $push: {exercises: exercise } },
       { new: true }
@@ -38,7 +38,7 @@ module.exports = function (app) {
     // create workout
     console.log(req.body);
     const body = req.body;
-    db.create( body )
+    Exercise.create()
       .then((data) => {
         res.json(data);
       })
@@ -49,7 +49,7 @@ module.exports = function (app) {
 
   app.get("/api/workouts/range", function (req, res) {
     // find action for workout range
-    db.find()
+    Exercise.find()
       .then((data) => {
         res.json(data);
       })
