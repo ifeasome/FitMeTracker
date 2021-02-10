@@ -49,7 +49,7 @@ module.exports = function (app) {
     // find action for workout range
     Exercise.find()
       .then((data) => {
-        res.json(data);
+        res.send(data);
       })
       .catch((err) => {
         res.json(err);
